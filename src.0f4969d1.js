@@ -9,10 +9,10 @@ module.exports=[{id:"XWaQXcbk0",name:"Картофель, запеченный �
 },{}],"k9XN":[function(require,module,exports) {
 "use strict";var e=u(require("../templates/menu-temp.hbs")),t=u(require("./menu.json"));function u(e){return e&&e.__esModule?e:{default:e}}const n=document.querySelector(".js-menu"),r=s(t.default);function s(t){return(0,e.default)(t)}n.insertAdjacentHTML("beforeend",r);
 },{"../templates/menu-temp.hbs":"S0A0","./menu.json":"NkM5"}],"JW5E":[function(require,module,exports) {
-const e=document.getElementById("theme-switch-toggle");e.addEventListener("change",c);const t={LIGHT:"light-theme",DARK:"dark-theme"};function c(e){e.currentTarget.checked?o():n()}function o(){document.body.classList.add(t.DARK),document.body.classList.remove(t.LIGHT),e.checked=!0,localStorage.setItem("theme",t.DARK)}function n(){document.body.classList.add(t.LIGHT),document.body.classList.remove(t.DARK),localStorage.setItem("theme",t.LIGHT)}function d(){localStorage.getItem("theme")===t.DARK?o():n()}d();
+const e=document.getElementById("theme-switch-toggle");e.addEventListener("change",c);const t={LIGHT:"light-theme",DARK:"dark-theme"};function c(e){e.currentTarget.checked?(localStorage.setItem("theme",t.DARK),o(t.DARK,t.LIGHT)):(o(t.LIGHT,t.DARK),localStorage.setItem("theme",t.LIGHT))}function o(e,t){document.body.classList.add(e),document.body.classList.remove(t)}function d(){localStorage.getItem("theme")===t.DARK&&(document.body.classList.add(t.DARK),e.checked=!0)}d();
 },{}],"clu1":[function(require,module,exports) {
 
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./js/itemTemplate"),require("./js/changeTheme"),require("./sass/main.scss");
 },{"./js/itemTemplate":"k9XN","./js/changeTheme":"JW5E","./sass/main.scss":"clu1"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-10-food-service/src.9788f4ed.js.map
+//# sourceMappingURL=/goit-js-hw-10-food-service/src.0f4969d1.js.map
