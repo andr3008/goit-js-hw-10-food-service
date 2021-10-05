@@ -7,25 +7,24 @@ const Theme = {
 };
 
 function onChangeTheme(e) {
-  e.currentTarget.checked ? checked() : notChecked();
+  if (e.currentTarget.checked) {
+    localStorage.setItem('theme', Theme.DARK);
+    checked(Theme.DARK, Theme.LIGHT);
+  } else {
+    checked(Theme.LIGHT, Theme.DARK);
+    localStorage.setItem('theme', Theme.LIGHT);
+  }
 }
-function checked() {
-  document.body.classList.add(Theme.DARK);
-  document.body.classList.remove(Theme.LIGHT);
-  checkboxRef.checked = true;
-  localStorage.setItem('theme', Theme.DARK);
+function checked(dark, ligth) {
+  document.body.classList.add(dark);
+  document.body.classList.remove(ligth);
 }
-function notChecked() {
-  document.body.classList.add(Theme.LIGHT);
-  document.body.classList.remove(Theme.DARK);
-  localStorage.setItem('theme', Theme.LIGHT);
-}
+
 onSaveTheme();
 function onSaveTheme() {
   const saveTheme = localStorage.getItem('theme');
   if (saveTheme === Theme.DARK) {
-    checked();
-  } else {
-    notChecked();
+    document.body.classList.add(Theme.DARK);
+    checkboxRef.checked = true;
   }
 }
